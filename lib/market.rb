@@ -29,6 +29,13 @@ class Market
     sorted.flatten.uniq.sort
   end
 
-
-
+  def total_inventory
+    sum = Hash.new(0)
+    @vendors.each do |ven|
+        ven.inventory.each do |item, amount|
+          sum[item] += amount
+      end
+    end
+    sum
+  end
 end
