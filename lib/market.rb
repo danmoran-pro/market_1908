@@ -38,4 +38,14 @@ class Market
     end
     sum
   end
+
+  def sell(name, quantity)
+    @vendor.each do |ven|
+      ven.inventory.each do |name, amount|
+        if amount <= quantity
+          false
+        end
+      end
+    end
+  end
 end
